@@ -1,7 +1,6 @@
 import React from "react";
 
-const FamilyMember = (props) => {
-  const { id, name, color, age, favorite } = props;
+const FamilyMember = ({ id, name, color, age, favorite }) => {
   return (
     <div key={id}>
       <h2>This is a family member</h2>

@@ -14,6 +14,10 @@ function App() {
     favorite: "",
   });
 
+  const toggleAdding = () => {
+    setAdding(!adding);
+  };
+
   const handleSubmit = (e) => {
     e.preventDefault();
     if (
@@ -45,13 +49,13 @@ function App() {
           familyMember={familyMember}
           handleSubmit={handleSubmit}
           handleChange={handleChange}
-          setAdding={setAdding}
+          toggleAdding={toggleAdding}
         />
       ) : (
         <BigButton
           text={family.length > 0 ? "Add Another Family Member to List" : "Add a Family Member"}
           adding={adding}
-          setAdding={setAdding}
+          toggleAdding={toggleAdding}
         />
       )}
     </div>

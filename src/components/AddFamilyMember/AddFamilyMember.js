@@ -1,6 +1,6 @@
 import React from "react";
 
-const AddFamilyMember = ({ familyMember, handleSubmit, handleChange, setAdding }) => {
+const AddFamilyMember = ({ familyMember, handleSubmit, handleChange, toggleAdding }) => {
   return (
     <div className='rounded-md flex flex-col bg-amber-600  sm: w-1/3 min-w-min px-6 py-6'>
       <h3 className='text-amber-100 text-center text-4xl mb-3 font-bold'>Family Member</h3>
@@ -73,14 +73,14 @@ const AddFamilyMember = ({ familyMember, handleSubmit, handleChange, setAdding }
         <div className='flex'>
           <button
             type='submit'
-            className=' mx-2 italic shadow-lg rounded px-4 py-3 mt-8  mb-4 border-4 border-amber-50 text-amber-50 bg-amber-500'
+            className=' outline-amber-400 mx-2 italic shadow-lg rounded px-4 py-3 mt-8  mb-4 border-4 border-amber-50 text-amber-50 bg-amber-500'
           >
             Submit
           </button>
           <button
             type='submit'
-            className=' mx-2 italic shadow-lg rounded px-4 py-3 mt-8  mb-4 border-4 border-amber-50 text-amber-50 bg-amber-500'
-            onClick={() => setAdding(false)}
+            className='outline-amber-400 mx-2 italic shadow-lg rounded px-4 py-3 mt-8  mb-4 border-4 border-amber-50 text-amber-50 bg-amber-500'
+            onClick={toggleAdding}
           >
             Go Back
           </button>

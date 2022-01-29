@@ -1,9 +1,13 @@
-import React from "react";
+import { useContext } from "react";
+import SpanishContext from "../../Context/SpanishContext.js";
 
 const AddFamilyMember = ({ familyMember, handleSubmit, handleChange, toggleAdding }) => {
+  const { spanish } = useContext(SpanishContext);
   return (
     <div className='rounded-md flex flex-col bg-amber-600  sm: w-1/3 min-w-min px-6 py-6'>
-      <h3 className='text-amber-100 text-center text-4xl mb-3 font-bold'>Family Member</h3>
+      <h3 className='text-amber-100 text-center text-4xl mb-3 font-bold'>
+        {spanish ? "Miembro de la familia" : "Family Member"}
+      </h3>
       <form className='flex flex-col items-center text-xl' onSubmit={handleSubmit}>
         <div className='flex flex-col items-center'>
           <label htmlFor='name' className='py-3 self-start text-amber-100'>

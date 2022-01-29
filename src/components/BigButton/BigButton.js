@@ -1,6 +1,8 @@
-import React from "react";
+import React, { useContext } from "react";
+import SpanishContext from "../../Context/SpanishContext.js";
 
 const BigButton = ({ text, adding, toggleAdding }) => {
+  const { spanish } = useContext(SpanishContext);
   return (
     <button
       type='submit'

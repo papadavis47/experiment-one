@@ -2,9 +2,11 @@ import { useState } from "react";
 import AddFamilyMember from "./components/AddFamilyMember/AddFamilyMember.js";
 import BigButton from "./components/BigButton/BigButton.js";
 import ListFamily from "./components/ListFamily/ListFamily.js";
+import SpanishContext from "./Context/SpanishContext.js";
 
 function App() {
   const [adding, setAdding] = useState(false);
+  const [spanish, setSpanish] = useState(false);
   const [family, setFamily] = useState([]);
   const [familyMember, setFamilyMember] = useState({
     name: "",
@@ -16,6 +18,10 @@ function App() {
 
   const toggleAdding = () => {
     setAdding(!adding);
+  };
+
+  const toggleSpanish = () => {
+    setSpanish(!spanish);
   };
 
   const handleSubmit = (e) => {
@@ -34,6 +40,13 @@ function App() {
     }
   };
 
+  const englishAddButtonText =
+    family.length > 0 ? "Add Another Family Member to List" : "Add a Family Member";
+  const spanishAddButtonText =
+    family.length > 0
+      ? "Agregar otro miembro de la familia a la lista"
+      : "Añadir miembro de la familia";
+
   const handleChange = (e) => {
     const name = e.target.name;
     const value = e.target.value;
@@ -41,24 +54,31 @@ function App() {
   };
 
   return (
-    <div className='bg-amber-200 min-h-screen flex flex-col items-center justify-center p-4'>
-      <h1 className='text-3xl font-bold text-center py-5'>Mi Familia</h1>
-      {!adding && family.length > 0 && <ListFamily family={family} />}
-      {adding ? (
-        <AddFamilyMember
-          familyMember={familyMember}
-          handleSubmit={handleSubmit}
-          handleChange={handleChange}
-          toggleAdding={toggleAdding}
-        />
-      ) : (
-        <BigButton
-          text={family.length > 0 ? "Add Another Family Member to List" : "Add a Family Member"}
-          adding={adding}
-          toggleAdding={toggleAdding}
-        />
-      )}
-    </div>
+    <SpanishContext.Provider value={{ spanish }}>
+      <div className='bg-amber-200 min-h-screen flex flex-col items-center justify-center p-4'>
+        <div>
+          <BigButton text={spanish ? "Inglés" : "Spanish"} />
+        </div>
+        <h1 className='text-3xl font-bold text-center py-5'>
+          {spanish ? "Mi Familia" : "My Family"}
+        </h1>
+        {!adding && family.length > 0 && <ListFamily family={family} />}
+        {adding ? (
+          <AddFamilyMember
+            familyMember={familyMember}
+            handleSubmit={handleSubmit}
+            handleChange={handleChange}
+            toggleAdding={toggleAdding}
+          />
+        ) : (
+          <BigButton
+            text={spanish ? spanishAddButtonText : englishAddButtonText}
+            adding={adding}
+            toggleAdding={toggleAdding}
+          />
+        )}
+      </div>
+    </SpanishContext.Provider>
   );
 }
 

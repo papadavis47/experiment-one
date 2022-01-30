@@ -11,7 +11,7 @@ const AddFamilyMember = ({ familyMember, handleSubmit, handleChange, toggleAddin
       <form className='flex flex-col items-center text-xl' onSubmit={handleSubmit}>
         <div className='flex flex-col items-center'>
           <label htmlFor='name' className='py-3 self-start text-amber-100'>
-            Name
+            {spanish ? "Nombre" : "Name"}
           </label>
           <input
             type='text'
@@ -24,7 +24,7 @@ const AddFamilyMember = ({ familyMember, handleSubmit, handleChange, toggleAddin
         </div>
         <div className='flex flex-col items-center'>
           <label htmlFor='age' className='py-3 self-start text-amber-100'>
-            Age
+            {spanish ? "Edad" : "Age"}
           </label>
           <input
             type='text'
@@ -37,7 +37,7 @@ const AddFamilyMember = ({ familyMember, handleSubmit, handleChange, toggleAddin
         </div>
         <div className='flex flex-col items-center'>
           <label htmlFor='month' className='py-3 self-start text-amber-100'>
-            Birth Month
+            {spanish ? "Mes de nacimiento" : "Birth Month"}
           </label>
           <input
             type='text'
@@ -50,7 +50,7 @@ const AddFamilyMember = ({ familyMember, handleSubmit, handleChange, toggleAddin
         </div>
         <div className='flex flex-col items-center'>
           <label htmlFor='color' className='py-3 self-start text-amber-100'>
-            Favorite Color
+            {spanish ? "Color favorito" : "Favorite Color"}
           </label>
           <input
             type='text'
@@ -63,7 +63,7 @@ const AddFamilyMember = ({ familyMember, handleSubmit, handleChange, toggleAddin
         </div>
         <div className='flex flex-col items-center'>
           <label htmlFor='favorite' className='py-3 self-start text-amber-100'>
-            Favorite Activity
+            {spanish ? "Actividad favorito" : "Favorite Activity"}
           </label>
           <input
             type='text'
@@ -79,14 +79,14 @@ const AddFamilyMember = ({ familyMember, handleSubmit, handleChange, toggleAddin
             type='submit'
             className=' outline-amber-400 mx-2 italic shadow-lg rounded px-4 py-3 mt-8  mb-4 border-4 border-amber-50 text-amber-50 bg-amber-500'
           >
-            Submit
+            {spanish ? "Entregar" : "Submit"}
           </button>
           <button
             type='submit'
             className='outline-amber-400 mx-2 italic shadow-lg rounded px-4 py-3 mt-8  mb-4 border-4 border-amber-50 text-amber-50 bg-amber-500'
             onClick={toggleAdding}
           >
-            Go Back
+            {spanish ? "Regresa" : "Go Back"}
           </button>
         </div>
       </form>

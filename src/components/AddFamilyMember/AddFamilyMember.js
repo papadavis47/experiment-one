@@ -4,7 +4,7 @@ import SpanishContext from "../../Context/SpanishContext.js";
 const AddFamilyMember = ({ familyMember, handleSubmit, handleChange, toggleAdding }) => {
   const { spanish } = useContext(SpanishContext);
   return (
-    <div className='rounded-md flex flex-col bg-amber-600  sm: w-1/3 min-w-min px-6 py-6'>
+    <div className='rounded-md flex flex-col bg-amber-600 min-w-3/4 px-6 py-6'>
       <h3 className='text-amber-100 text-center text-4xl mb-3 font-bold'>
         {spanish ? "Mi Amado" : "My Loved One"}
       </h3>

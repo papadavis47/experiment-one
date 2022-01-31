@@ -43,11 +43,9 @@ function App() {
   };
 
   const englishAddButtonText =
-    family.length > 0 ? "Add Another Family Member to List" : "Add a Family Member";
+    family.length > 0 ? "Add Another Love One to List" : "Create a List of Loved Ones";
   const spanishAddButtonText =
-    family.length > 0
-      ? "Agregar otro miembro de la familia a la lista"
-      : "Añadir miembro de la familia";
+    family.length > 0 ? "Agregar otro ser querido a la lista" : "Crear una lista de seres queridos";
 
   const handleChange = (e) => {
     const name = e.target.name;

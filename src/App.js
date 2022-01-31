@@ -1,6 +1,7 @@
 import { useState } from "react";
 import AddFamilyMember from "./components/AddFamilyMember/AddFamilyMember.js";
 import BigButton from "./components/BigButton/BigButton.js";
+import HeaderNav from "./components/HeaderNav/HeaderNav.js";
 import ListFamily from "./components/ListFamily/ListFamily.js";
 import SpanishContext from "./Context/SpanishContext.js";
 
@@ -54,17 +55,9 @@ function App() {
   };
 
   return (
-    <SpanishContext.Provider value={{ spanish }}>
-      <div className='bg-amber-200 min-h-screen flex flex-col items-center p-4'>
-        <div>
-          <BigButton
-            clickHandler={toggleSpanish}
-            text={spanish ? "Cambiar a Inglés" : "Change to Spanish"}
-          />
-        </div>
-        <h1 className='text-3xl font-bold text-center py-5'>
-          {spanish ? "Mi Familia" : "My Family"}
-        </h1>
+    <SpanishContext.Provider value={{ spanish, toggleSpanish }}>
+      <div className='bg-amber-200 min-h-screen flex flex-col items-center'>
+        <HeaderNav />
         {!adding && family.length > 0 && <ListFamily family={family} />}
         {adding ? (
           <AddFamilyMember

@@ -56,8 +56,11 @@ function App() {
   return (
     <SpanishContext.Provider value={{ spanish }}>
       <div className='bg-amber-200 min-h-screen flex flex-col items-center p-4'>
-        <div onClick={toggleSpanish}>
-          <BigButton text={spanish ? "Cambiar a Inglés" : "Change to Spanish"} />
+        <div>
+          <BigButton
+            clickHandler={toggleSpanish}
+            text={spanish ? "Cambiar a Inglés" : "Change to Spanish"}
+          />
         </div>
         <h1 className='text-3xl font-bold text-center py-5'>
           {spanish ? "Mi Familia" : "My Family"}
@@ -71,10 +74,10 @@ function App() {
             toggleAdding={toggleAdding}
           />
         ) : (
-          <div onClick={toggleAdding}>
+          <div>
             <BigButton
               text={spanish ? spanishAddButtonText : englishAddButtonText}
-              onClick={toggleAdding}
+              clickHandler={toggleAdding}
             />
           </div>
         )}

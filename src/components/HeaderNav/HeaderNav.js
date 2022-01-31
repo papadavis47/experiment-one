@@ -5,7 +5,7 @@ import BigButton from "../BigButton/BigButton.js";
 const HeaderNav = () => {
   const { spanish, toggleSpanish } = useContext(SpanishContext);
   return (
-    <div className='flex bg-amber-900 h-40 w-full justify-between items-center mb-6'>
+    <div className='flex bg-amber-900 h-30 w-full justify-between items-center mb-6'>
       <div className='flex items-center space-x-3 ml-4'>
         <svg
           xmlns='http://www.w3.org/2000/svg'

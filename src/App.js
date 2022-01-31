@@ -1,6 +1,7 @@
 import { useState } from "react";
 import AddFamilyMember from "./components/AddFamilyMember/AddFamilyMember.js";
 import BigButton from "./components/BigButton/BigButton.js";
+import Footer from "./components/Footer/Footer.js";
 import HeaderNav from "./components/HeaderNav/HeaderNav.js";
 import ListFamily from "./components/ListFamily/ListFamily.js";
 import SpanishContext from "./Context/SpanishContext.js";
@@ -58,22 +59,25 @@ function App() {
     <SpanishContext.Provider value={{ spanish, toggleSpanish }}>
       <div className='bg-amber-200 min-h-screen flex flex-col items-center'>
         <HeaderNav />
-        {!adding && family.length > 0 && <ListFamily family={family} />}
-        {adding ? (
-          <AddFamilyMember
-            familyMember={familyMember}
-            handleSubmit={handleSubmit}
-            handleChange={handleChange}
-            toggleAdding={toggleAdding}
-          />
-        ) : (
-          <div>
-            <BigButton
-              text={spanish ? spanishAddButtonText : englishAddButtonText}
-              clickHandler={toggleAdding}
+        <section className='flex flex-col'>
+          {!adding && family.length > 0 && <ListFamily family={family} />}
+          {adding ? (
+            <AddFamilyMember
+              familyMember={familyMember}
+              handleSubmit={handleSubmit}
+              handleChange={handleChange}
+              toggleAdding={toggleAdding}
             />
-          </div>
-        )}
+          ) : (
+            <div>
+              <BigButton
+                text={spanish ? spanishAddButtonText : englishAddButtonText}
+                clickHandler={toggleAdding}
+              />
+            </div>
+          )}
+        </section>
+        <Footer />
       </div>
     </SpanishContext.Provider>
   );

@@ -80,9 +80,9 @@ const AddFamilyMember = ({ familyMember, handleSubmit, handleChange, toggleAddin
         </div>
         <div className='flex flex-col mb-2 space-y-2 px-3 align-baseline'>
           <label htmlFor='qualities' className='py-3 text-amber-100'>
-            {spanish ? "Cualidades Adorables" : "Lovable Qualities"}
+            {spanish ? "Hermosas Cualidades" : "Beautiful Qualities"}
           </label>
-          <input
+          <textarea
             type='text'
             name='qualities'
             id='qualities'

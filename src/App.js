@@ -72,6 +72,7 @@ function App() {
             <BigButton
               text={spanish ? spanishAddButtonText : englishAddButtonText}
               clickHandler={toggleAdding}
+              textSize='text-2xl'
             />
           )}
         </section>

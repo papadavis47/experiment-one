@@ -5,16 +5,16 @@ import FamilyMember from "../FamilyMember/FamilyMember.js";
 const ListFamily = ({ family }) => {
   const { spanish } = useContext(SpanishContext);
   return (
-    <section className='rounded-lg flex flex-col md:w-1/2 bg-amber-800 text-amber-100 p-6'>
+    <div className='rounded-lg flex-col max-w-2xl bg-amber-700 text-amber-100 p-6'>
       <h1 className='text-center text-xl font-bold'>
-        {!spanish ? "The People I Love" : "La gente que amo"}
+        {spanish ? "Gente que amo" : "People I Love"}
       </h1>
-      <div>
+      <div className='flex flex-wrap'>
         {family.map((member) => {
           return <FamilyMember {...member} />;
         })}
       </div>
-    </section>
+    </div>
   );
 };
 

@@ -59,7 +59,7 @@ function App() {
     <SpanishContext.Provider value={{ spanish, toggleSpanish }}>
       <div className='bg-amber-200 flex flex-col items-center min-h-screen'>
         <HeaderNav />
-        <section className='flex flex-col items-center flex-grow'>
+        <section className='flex flex-col items-center flex-grow px-3'>
           {!adding && family.length > 0 && <ListFamily family={family} />}
           {adding ? (
             <AddFamilyMember

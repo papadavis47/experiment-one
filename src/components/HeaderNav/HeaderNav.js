@@ -22,7 +22,7 @@ const HeaderNav = () => {
           />
         </svg>
         <h1 className='text-3xl font-bold py-5 text-amber-100'>
-          {spanish ? "Gente Que Amo" : "People I Love"}
+          {spanish ? "Agradecido" : "Grateful"}
         </h1>
       </div>
       <div className='mr-6'>

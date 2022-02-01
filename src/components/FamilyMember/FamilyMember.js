@@ -1,7 +1,7 @@
 import { useContext } from "react";
 import SpanishContext from "../../Context/SpanishContext.js";
 
-const FamilyMember = ({ id, name, color, age, favorite, month }) => {
+const FamilyMember = ({ id, name, color, age, favorite, month, qualities }) => {
   const { spanish } = useContext(SpanishContext);
   return (
     <div key={id} className='flex flex-col w-full p-6 bg-amber-300 mt-4 text-amber-700'>
@@ -23,6 +23,9 @@ const FamilyMember = ({ id, name, color, age, favorite, month }) => {
       <p>
         {spanish ? "Actividad favorito" : "Favorite Activity:"}{" "}
         <span className='font-bold'>{favorite}</span>
+      </p>
+      <p>
+        {spanish ? "Cualidades" : "Qualities:"} <span className='font-bold'>{qualities}</span>
       </p>
     </div>
   );

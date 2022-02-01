@@ -16,6 +16,7 @@ function App() {
     month: "",
     color: "",
     favorite: "",
+    qualities: "",
   });
 
   const toggleAdding = () => {
@@ -33,11 +34,12 @@ function App() {
       familyMember.age &&
       familyMember.color &&
       familyMember.month &&
-      familyMember.favorite
+      familyMember.favorite &&
+      familyMember.qualities
     ) {
       const newFamilyMember = { ...familyMember, id: new Date().getTime().toString() };
       setFamily([...family, newFamilyMember]);
-      setFamilyMember({ name: "", age: "", month: "", color: "", favorite: "" });
+      setFamilyMember({ name: "", age: "", month: "", color: "", favorite: "", qualities: "" });
       setAdding(false);
     }
   };
@@ -55,9 +57,9 @@ function App() {
 
   return (
     <SpanishContext.Provider value={{ spanish, toggleSpanish }}>
-      <div className='bg-amber-200 min-h-screen flex flex-col items-center'>
+      <div className='bg-amber-200 flex flex-col items-center min-h-screen'>
         <HeaderNav />
-        <section className='flex flex-col'>
+        <section className='flex flex-col items-center flex-grow'>
           {!adding && family.length > 0 && <ListFamily family={family} />}
           {adding ? (
             <AddFamilyMember
@@ -67,12 +69,10 @@ function App() {
               toggleAdding={toggleAdding}
             />
           ) : (
-            <div>
-              <BigButton
-                text={spanish ? spanishAddButtonText : englishAddButtonText}
-                clickHandler={toggleAdding}
-              />
-            </div>
+            <BigButton
+              text={spanish ? spanishAddButtonText : englishAddButtonText}
+              clickHandler={toggleAdding}
+            />
           )}
         </section>
         <Footer />

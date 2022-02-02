@@ -27,6 +27,10 @@ function App() {
     setSpanish(!spanish);
   };
 
+  const clearList = () => {
+    setFamily([]);
+  };
+
   const handleSubmit = (e) => {
     e.preventDefault();
     if (
@@ -56,8 +60,8 @@ function App() {
   };
 
   return (
-    <SpanishContext.Provider value={{ spanish, toggleSpanish }}>
-      <div className='bg-amber-200 flex flex-col items-center min-h-screen'>
+    <SpanishContext.Provider value={{ spanish, toggleSpanish, setAdding }}>
+      <div className='flex flex-col items-center min-h-screen bg-amber-200'>
         <HeaderNav />
         <section className='flex flex-col items-center flex-grow px-3'>
           {!adding && family.length > 0 && <ListFamily family={family} />}
@@ -74,6 +78,15 @@ function App() {
               clickHandler={toggleAdding}
               textSize='text-2xl'
             />
+          )}
+          {family.length > 0 && (
+            <div>
+              <BigButton
+                text={spanish ? "volver a empezar la lista" : "Start List Over"}
+                textSize='text-1xl'
+                clickHandler={clearList}
+              />
+            </div>
           )}
         </section>
         <Footer />
